@@ -1,0 +1,23 @@
+testcases = int(input())
+for _ in range(testcases):
+    a , b = map(int,input().split())
+    xk , yk = map(int,input().split())
+    xq , yq =map(int,input().split())
+    temp = list()
+    temp.append([a,b])
+    temp.append([-a,-b])
+    temp.append([a,-b])
+    temp.append([-a,b])
+    temp.append([b,a])
+    temp.append([-b,-a])
+    temp.append([-b,a])
+    temp.append([b,-a])
+    king = set()
+    for i in range(len(temp)):
+        king.add((xk+temp[i][0] , yk+temp[i][1]))
+    queen = set()
+    for i in range(len(temp)):
+        queen.add((xq+temp[i][0] , yq+temp[i][1]))
+    s = king.intersection(queen)
+    print(len(s))
+    print()
